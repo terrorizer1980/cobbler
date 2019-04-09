@@ -48,6 +48,12 @@ auth_token_expiration: 3600
 autoinstall_snippets_dir: /var/lib/cobbler/snippets
 autoinstall_templates_dir: /var/lib/cobbler/templates
 
+# This should contain the protocol over which the autointall-file is available.
+# Valid values are: http, https
+# This is setting does not setup you api for https it just changes the way the url for your profiles and systems are
+# generated.
+autoinstall_protocol: http
+
 # location of templates used for boot loader config generation
 boot_loader_conf_template_dir: "/etc/cobbler/boot_loader_conf"
 

@@ -41,6 +41,7 @@ DEFAULTS = {
     "anamon_enabled": [0, "bool"],
     "auth_token_expiration": [3600, "int"],
     "authn_pam_service": ["login", "str"],
+    "autoinstall_protocol": ["http", "str"],
     "autoinstall_snippets_dir": ["/var/lib/cobbler/snippets", "str"],
     "autoinstall_templates_dir": ["/var/lib/cobbler/templates", "str"],
     "bind_chroot_path": ["", "str"],
