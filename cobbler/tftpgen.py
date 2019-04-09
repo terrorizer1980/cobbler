@@ -561,11 +561,12 @@ class TFTPGen(object):
                 ipaddress = blended["http_server"]
             URL_REGEX = "[a-zA-Z]*://.*"
             local_autoinstall_file = not re.match(URL_REGEX, autoinstall_path)
+            protocol = self.settings.autoinstall_protocol
             if local_autoinstall_file:
                 if system is not None:
-                    autoinstall_path = "http://%s/cblr/svc/op/autoinstall/system/%s" % (ipaddress, system.name)
+                    autoinstall_path = "%s://%s/cblr/svc/op/autoinstall/system/%s" % (protocol, ipaddress, system.name)
                 else:
-                    autoinstall_path = "http://%s/cblr/svc/op/autoinstall/profile/%s" % (ipaddress, profile.name)
+                    autoinstall_path = "%s://%s/cblr/svc/op/autoinstall/profile/%s" % (protocol, ipaddress, profile.name)
 
             if distro.breed is None or distro.breed == "redhat":
 

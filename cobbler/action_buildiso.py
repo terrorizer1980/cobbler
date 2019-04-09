@@ -170,8 +170,8 @@ class BuildIso(object):
             utils.suse_kopts_textmode_overwrite(dist, data['kernel_options'])
 
             if not re.match(r"[a-z]+://.*", data["autoinstall"]):
-                data["autoinstall"] = "http://%s:%s/cblr/svc/op/autoinstall/profile/%s" % (
-                    data["server"], self.api.settings().http_port, profile.name
+                data["autoinstall"] = "%s://%s:%s/cblr/svc/op/autoinstall/profile/%s" % (
+                    self.settings.autoinstall_protocol, data["server"], self.api.settings().http_port, profile.name
                 )
 
             append_line = " append initrd=%s.img" % distname
