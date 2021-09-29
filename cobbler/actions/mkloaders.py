@@ -59,7 +59,7 @@ class MkLoaders:
             return
         symlink(
             pathlib.Path("/usr/share/efi/x86_64/shim.efi"),
-            self.bootloaders_dir.joinpath(pathlib.Path("undionly.pxe")),
+            self.bootloaders_dir.joinpath(pathlib.Path("grub/shim.efi")),
             skip_existing=True
         )
 
@@ -72,7 +72,7 @@ class MkLoaders:
             return
         symlink(
             pathlib.Path("/usr/share/ipxe/undionly.kpxe"),
-            self.bootloaders_dir.joinpath(pathlib.Path("grub/shim.efi")),
+            self.bootloaders_dir.joinpath(pathlib.Path("undionly.pxe")),
             skip_existing=True
         )
 
@@ -203,6 +203,7 @@ def get_syslinux_version() -> int:
     This calls syslinux and asks for the version number.
 
     :return: The major syslinux release number.
+    :raises subprocess.CalledProcessError: Error raised by ``subprocess.run`` in case syslinux does not return zero.
     """
     # Example output: "syslinux 4.04  Copyright 1994-2011 H. Peter Anvin et al"
     cmd = ["syslinux", "-v"]
