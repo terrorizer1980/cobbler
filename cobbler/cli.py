@@ -429,6 +429,7 @@ SYSTEM_FIELDS = [
     ["virt_type", "<<inherit>>", 0, "Virt Type", True, "Virtualization technology to use",
      [e.value for e in enums.VirtType], "str"],
     ["serial_device", "", 0, "Serial Device #", True, "Serial Device Number", 0, "int"],
+    ["serial_driver", "", 0, "Serial Driver #", True, "Serial Kernel Driver", 0, "str"],
     ["serial_baud_rate", "", 0, "Serial Baud Rate", True, "Serial Baud Rate",
      ["", "2400", "4800", "9600", "19200", "38400", "57600", "115200"], "int"],
 ]
